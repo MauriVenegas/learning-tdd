@@ -33,4 +33,8 @@ describe("canReconfigure", () => {
   test("should returns false if have different order of transformation", () => {
     expect(canReconfigure("XBOX", "XXBO")).toBe(false);
   });
+
+  test("should returns true if have same length, number of unique letters and order of transformation", () => {
+    expect(canReconfigure('BAL', 'LIB')).toBe(true);
+  });
 });
