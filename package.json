@@ -1,5 +1,9 @@
 {
   "devDependencies": {
+    "@testing-library/react": "^14.0.0",
+    "@vitejs/plugin-react": "^4.0.0",
+    "@vitest/coverage-c8": "^0.31.1",
+    "happy-dom": "^9.19.2",
     "standard": "^17.0.0",
     "vitest": "^0.31.0"
   },
@@ -36,6 +40,7 @@
     "loupe": "^2.3.6",
     "lru-cache": "^6.0.0",
     "magic-string": "^0.30.0",
+    "mathjs": "^11.8.0",
     "md5-hex": "^3.0.1",
     "mlly": "^1.2.1",
     "ms": "^2.1.2",
@@ -47,6 +52,8 @@
     "pkg-types": "^1.0.3",
     "postcss": "^8.4.23",
     "pretty-format": "^27.5.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
     "react-is": "^17.0.2",
     "rollup": "^3.22.0",
     "semver": "^7.5.1",
@@ -69,6 +76,7 @@
     "yocto-queue": "^1.0.0"
   },
   "scripts": {
+    "dev": "vite",
     "test": "vitest",
     "coverage": "vitest run --coverage"
   },
