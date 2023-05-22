@@ -1,6 +1,6 @@
 import { cleanup, fireEvent, render, screen, } from '@testing-library/react';
 import { afterEach, describe, test, expect } from "vitest";
-import {Calculator, numbers, operations } from '../src/Calculator'
+import { Calculator, numbers, operations } from '../src/Calculator'
 
 describe('Calculator', () => {
   afterEach(cleanup);
@@ -72,7 +72,7 @@ describe('Calculator', () => {
     expect(input.value).toBe('123');
   })
 
-  test('should user input after clicking number amd operations ', () => {
+  test('should user input after clicking number and operations ', () => {
     render(<Calculator />)
 
     const one = screen.getByText('1');
@@ -104,6 +104,21 @@ describe('Calculator', () => {
 
     const input = screen.getByRole('textbox');
     expect(input.value).toBe('2');
+  })
+
+  test('should render button clear', () => {
+    render(<Calculator />)
+    screen.getByText('Clear')
+  })
+
+  test('should clean input after clicking clear button', () => {
+    render(<Calculator />)
+
+    const clear = screen.getByText('Clear');
+    fireEvent.click(clear);
+
+    const input = screen.getByRole('textbox');
+    expect(input.value).toBe('');
   })
 
 })

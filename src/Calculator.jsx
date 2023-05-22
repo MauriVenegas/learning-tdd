@@ -3,34 +3,37 @@ import { evaluate } from 'mathjs';
 
 export const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 const rows = [
-  [7,8,9],
-  [4,5,6],
-  [1,2,3],
-  [0]
+  [7,8,9,'+'],
+  [4,5,6,'-'],
+  [1,2,3,'*'],
+  [0,'.','/','=']
 ];
 export const operations = ['+','-','*','/'];
 export const equalSign = '=';
 
 export const Calculator = () => {
   const [value, setValue] = useState('');
-  const createHandleClick = operation => () => { setValue(value.concat(operation)) }
+  const createHandleClick = operation => () => {
+    console.log(value, operation);
+    if (operation === '=') setValue(evaluate(value));
+    else{
+      setValue(value.toString().concat(operation));
+    }
+  }
 
   return (
     <section>
       <h1>Calculator</h1>
-      <input value={value} readOnly/>
+      <input value={value} readOnly style={{width:'92px'}}/>
       <div role='grid'>
         {rows.map((row, index) => (
           <div key={index} role='row'>
-            {row.map(number => 
-              <button onClick={createHandleClick(number)} key={number}>{number}</button>
+            {row.map(op =>
+              <button onClick={createHandleClick(op)} key={op} style={{width:'25px'}}>{op}</button>
             )}
           </div>
         ))}
-        {operations.map(operation => 
-          <button onClick={createHandleClick(operation)} key={operation}>{operation}</button>
-        )}
-        <button onClick={() => setValue(evaluate(value))}>{equalSign}</button>
+        <button onClick={() => setValue('')} style={{width:'100px'}}>Clear</button>
       </div>
     </section>
   )
