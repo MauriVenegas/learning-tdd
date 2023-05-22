@@ -14,7 +14,6 @@ export const equalSign = '=';
 export const Calculator = () => {
   const [value, setValue] = useState('');
   const createHandleClick = operation => () => {
-    console.log(value, operation);
     if (operation === '=') setValue(evaluate(value));
     else{
       setValue(value.toString().concat(operation));
