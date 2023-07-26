@@ -10,7 +10,7 @@
   "eslintConfig": {
     "extend": "./node_modules/standard/eslintrc.json"
   },
-  "name": "aprende-tdd",
+  "name": "learning-tdd",
   "version": "1.0.0",
   "main": "index.js",
   "type": "module",
